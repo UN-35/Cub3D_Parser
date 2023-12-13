@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:58:21 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/12/13 14:21:05 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:20:43 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,27 @@ int		filename_check_open(char *name)
 	return 0;
 }
 
+char *pars_path_mlx(char *line)
+{
+	char *path;
+	int i;
+
+	i = 0;
+
+	path = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
+	if (!path)
+		ft_exit_error("Error : Empty path!");
+	while (path[i])
+	{
+		if (path[i] == ' ' || path[i] == '\t')
+			ft_exit_error("Error : Path must not contain spaces");
+		i++;
+	}
+	if (ft_strncmp(ft_strrchr(path, '.'), ".mlx", 5))
+		ft_exit_error("Error : Path must have .mlx extention!");
+	return (path);
+}
+
 int main(int ac, char  **av)
 {
 	int fd = 0;
@@ -148,22 +169,22 @@ int main(int ac, char  **av)
 		if(line[i] == '\0')
 			continue;
 		else if (!ft_strncmp(line + i, "NO ", 3) && !data->n)	
-			data->n = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
+			data->n = pars_path_mlx(line);
 		else if (!ft_strncmp(line + i, "SO ", 3) && !data->s)
-			data->s = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
+			data->s = pars_path_mlx(line);
 		else if (!ft_strncmp(line + i, "WE ", 3) && !data->w)
-			data->w = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
+			data->w = pars_path_mlx(line);
 		else if (!ft_strncmp(line + i, "EA ", 3) && !data->e)
-			data->e = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
+			data->e = pars_path_mlx(line);
 		else if (!ft_strncmp(line + i, "F ", 2) && data->floor[0] == -1)
 			get_colors(&data, line, 1);
 		else if (!ft_strncmp(line + i, "C ", 2) && data->ceil[0] == -1)
 			get_colors(&data, line, 0);
 		else
 			ft_exit_error("Error : A fiew arguments must be missed up!");
+		if (line)
+			free(line);
 	}
 	printf("%s\n%s\n%s\n%s\n", data->n, data->e, data->w, data->s);
-	for(int i = 0; i < 3; i++)
-		printf("%d\n", );
 }
 
