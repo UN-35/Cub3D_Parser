@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:58:54 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/01/15 16:36:26 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:18:22 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*print_line(char **str)
 	int		i;
 	char	*return_line;
 	char	*tmp_str;
+	char	*return_str;
 
 	i = line_check (*str);
 	if (i < 0)
@@ -52,7 +53,10 @@ char	*print_line(char **str)
 	tmp_str = ft_substr (*str, i + 1, ft_strlen(*str) - 1);
 	free (*str);
 	*str = tmp_str;
-	return (return_line);
+	return_str = ft_strtrim(return_line, "\n");
+	if (return_line)
+		free(return_line);
+	return (return_str);
 }
 // when we allocate a block we should free it and reset it to NULL;
 // we dont want any leak tho.
@@ -73,7 +77,7 @@ char	*get_next_line(int fd)
 	ssize_t		i;
 	char		*cpy;
 	static char	*str;
-
+	
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	cpy = malloc (sizeof(char) * BUFFER_SIZE + 1);

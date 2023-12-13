@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:58:21 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/12/13 11:57:13 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:21:05 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int		get_colors(t_parser	**data, char *line, int k)
 	
 	if (char_counter(line, ',') != 2)
 		return (ft_exit_error("Error : Make sure that the color is in RGB format!"), 1);
-	rgb = ft_split(ft_strchr(line, ' '), ',');
+	line = ft_strtrim(line, " \t");
+	rgb = ft_split(ft_strchr(line, ' ') + 1, ',');
 	if (!rgb)
 		return (0);
 	i = -1;
@@ -144,7 +145,7 @@ int main(int ac, char  **av)
 			break;
 		while (is_space(line[i]))
 			i++;
-		if(line[i] == '\n')
+		if(line[i] == '\0')
 			continue;
 		else if (!ft_strncmp(line + i, "NO ", 3) && !data->n)	
 			data->n = ft_strtrim(ft_strchr(ft_strtrim( line, " \t\n"), ' '), " \t\n");
@@ -162,5 +163,7 @@ int main(int ac, char  **av)
 			ft_exit_error("Error : A fiew arguments must be missed up!");
 	}
 	printf("%s\n%s\n%s\n%s\n", data->n, data->e, data->w, data->s);
+	for(int i = 0; i < 3; i++)
+		printf("%d\n", );
 }
 
