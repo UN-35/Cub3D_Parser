@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:56:16 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:26:30 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:15:49 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_parser
 	char	**map;
 	int		width;
 	int		height;
+	char	player;
+	int		player_x;
+	int		player_y;
 	// get the player position [x, y];
 	// get the width and the height of the map;
 
@@ -43,8 +46,8 @@ size_t	ft_strlen(char *str);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_strchr(char *s, int c);
 char	**ft_split(char *s, char c);
-int	ft_atoi(char *str);
-int	ft_isdigit(int c);
+int		 ft_atoi(char *str);
+int		ft_isdigit(int c);
 
 
 
