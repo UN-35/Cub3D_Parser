@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/yoelansa/Desktop/Cub3D_1337cursus/Cub3D/parsing",
-      "program": "/Users/yoelansa/Desktop/Cub3D_1337cursus/Cub3D/parsing/build/Debug/outDebug"
+      "cwd": "/Users/yoelansa/Desktop/cub3D/Cub3D/parsing",
+      "program": "/Users/yoelansa/Desktop/cub3D/Cub3D/parsing/build/Debug/outDebug"
     }
   ]
 }

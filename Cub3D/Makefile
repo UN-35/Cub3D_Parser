@@ -6,19 +6,19 @@
 #    By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 11:49:19 by yoelansa          #+#    #+#              #
-#    Updated: 2023/12/12 19:37:48 by yoelansa         ###   ########.fr        #
+#    Updated: 2023/12/16 14:52:22 by yoelansa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-SRC= parsing/main.c libft/*.c get_next_line/*.c
+SRC= parsing/*.c libft/*.c get_next_line/*.c
 
 RM = @rm -rf
 
 CC = @cc
 
-CFLAGS = -Wextra -Werror -Wall  -fsanitize=address -g
+CFLAGS = -Wextra -Werror -Wall # -fsanitize=address -g
 
 all : $(NAME)
 

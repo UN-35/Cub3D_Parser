@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:58:54 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/12/13 14:18:22 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:15:01 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*print_line(char **str)
 // when we allocate a block we should free it and reset it to NULL;
 // we dont want any leak tho.
 
-char	*_free (char *cpy, char **str)
+char	*_free(char *cpy, char **str)
 {
 	if (*str)
 	{
@@ -77,7 +77,7 @@ char	*get_next_line(int fd)
 	ssize_t		i;
 	char		*cpy;
 	static char	*str;
-	
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	cpy = malloc (sizeof(char) * BUFFER_SIZE + 1);

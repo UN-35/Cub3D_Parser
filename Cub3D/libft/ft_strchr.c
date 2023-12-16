@@ -6,7 +6,7 @@
 /*   By: yoelansa <yoelansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:41:51 by yoelansa          #+#    #+#             */
-/*   Updated: 2023/12/12 14:50:39 by yoelansa         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:17:00 by yoelansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(char *s, int c)
 	char	*str;
 
 	if (!s)
-		return NULL;
+		return (NULL);
 	str = (char *)s;
 	i = 0;
 	while (str[i] != (char) c)
