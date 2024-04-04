@@ -1,1 +1,1 @@
-<div style:"display: flex"> <h3> Full project : <a href:"https://github.com/melhadou/Cub3D">Cub3D</a></h3> </div>
+<div style:"display: flex"> <h3> Full project : <a href="https://github.com/melhadou/Cub3D"><i>Cub3D</i></a></h3> </div>
